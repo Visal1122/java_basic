@@ -32,6 +32,11 @@ public class VariableDemo {
 
         float c = (float) a /b;
         System.out.println(c);
+
+
+        boolean x = (a>b);
+
+        System.out.println(x);
     }
 
 }
