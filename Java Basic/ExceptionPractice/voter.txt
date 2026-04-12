@@ -1,0 +1,1 @@
+Voter{id=1, person=Person{Id=2, name='Visal Sov', gender='Male', dateOfBirth=2005-06-12, IdCard='KH01479285'}, location='Phnom Penh', code='PP1'}
