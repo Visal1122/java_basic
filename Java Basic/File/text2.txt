@@ -1,0 +1,1 @@
+Write to the file using OutputStreamI append the text I append another text using Writer 

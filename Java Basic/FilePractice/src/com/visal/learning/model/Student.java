@@ -1,0 +1,52 @@
+package com.visal.learning.model;
+
+public class Student {
+    private int id;
+    private String name ;
+    private Gender gender;
+    private int grade ;
+
+    public Student(int id, String name, Gender gender, int grade) {
+        this.id = id;
+        this.name = name;
+        this.gender = gender;
+        this.grade = grade;
+    }
+    public String ToData(){
+        return  id+ "," + name + "," + gender + "," + grade ;
+    }
+    public String ToInfo(){
+        return  "ID = " + id+ " Name = "+ name + " Gender = " + gender + " Grade = " + grade ;
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
+}

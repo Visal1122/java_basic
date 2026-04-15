@@ -1,0 +1,6 @@
+1,Visal,MALE,11
+2,Nan,MALE,12
+3,Jing,MALE,12
+4,Thya,MALE,12
+5,Lol,FEMALE,11
+6,llll,MALE,12
