@@ -4,5 +4,5 @@
 /**
  * 
  */
-module Generic {
+module Test {
 }
