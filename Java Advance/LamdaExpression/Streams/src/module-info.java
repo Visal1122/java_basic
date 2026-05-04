@@ -4,5 +4,5 @@
 /**
  * 
  */
-module LamdaExpression {
+module Streams {
 }
