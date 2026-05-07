@@ -1,0 +1,16 @@
+package com.visal.learning;
+
+public class MarioGame implements Game{
+	public void up() {
+		System.out.println("Jump");
+	}
+	public void down() {
+		System.out.println("Sit Down");
+	}
+	public void left() {
+		System.out.println("Turn left");
+	}
+	public void right() {
+		System.out.println("Turn right");
+	}
+}
