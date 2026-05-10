@@ -1,5 +1,8 @@
 package com.visal.learning;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class GameRunner {
 	
 	private Game game; 

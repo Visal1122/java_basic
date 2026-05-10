@@ -1,5 +1,8 @@
 package com.visal.learning;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ZombieGame implements Game{
 	public void up() {
 		System.out.println("Go forward");
