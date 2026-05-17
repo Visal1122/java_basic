@@ -7,7 +7,6 @@ public class MainApplication {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
 		OrderClient orderClient = context.getBean(OrderClient.class);
 		orderClient.displayOrder();
-		orderClient.displayOrderB();
 	}
 
 }
