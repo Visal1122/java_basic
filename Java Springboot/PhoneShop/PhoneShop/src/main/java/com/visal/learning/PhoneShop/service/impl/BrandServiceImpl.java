@@ -1,7 +1,13 @@
 package com.visal.learning.PhoneShop.service.impl;
 
+import java.util.Optional;
+
+import com.visal.learning.PhoneShop.exception.ApiException;
+import com.visal.learning.PhoneShop.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 
 import com.visal.learning.PhoneShop.entity.Brand;
 import com.visal.learning.PhoneShop.repository.BrandRepository;
@@ -14,6 +20,26 @@ public class BrandServiceImpl implements BrandService{
 	
 	@Override
 	public Brand create(Brand brand) {
+		return brandRepository.save(brand);
+	}
+
+	@Override
+	public Brand getById(Integer id) {
+//		Optional<Brand> findbyId = brandRepository.findById(id);
+//		if(findbyId.isPresent()) {
+//			return findbyId.get();
+//		}
+//		else throw new HttpClientErrorException(HttpStatus.NOT_FOUND , "Brand with id = %d is not found ".formatted(id));
+		return brandRepository.findById(id).
+				//orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND , "Brand with id = %d is not found ".formatted(id)));
+//				orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND , "Brand with id = %d is not found".formatted(id)));
+				orElseThrow(() -> new ResourceNotFoundException("Brand" , id));
+	}
+
+	@Override
+	public Brand update(Integer id , Brand brandUpdate) {
+		Brand brand = getById(id);
+		brand.setName(brandUpdate.getName());
 		return brandRepository.save(brand);
 	}
 
