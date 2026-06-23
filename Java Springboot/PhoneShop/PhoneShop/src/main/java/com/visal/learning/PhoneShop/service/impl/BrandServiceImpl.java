@@ -1,13 +1,10 @@
 package com.visal.learning.PhoneShop.service.impl;
 
-import java.util.Optional;
+import java.util.List;
 
-import com.visal.learning.PhoneShop.exception.ApiException;
 import com.visal.learning.PhoneShop.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
 
 import com.visal.learning.PhoneShop.entity.Brand;
 import com.visal.learning.PhoneShop.repository.BrandRepository;
@@ -42,5 +39,17 @@ public class BrandServiceImpl implements BrandService{
 		brand.setName(brandUpdate.getName());
 		return brandRepository.save(brand);
 	}
+
+	@Override
+	public List<Brand> getBrands() {
+		return brandRepository.findAll();
+	}
+
+	@Override
+	public List<Brand> getBrands(String name) {
+//		brandRepository.findBy()
+		return brandRepository.findByNameContainingIgnoreCase(name);
+	}
+
 
 }
