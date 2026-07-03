@@ -10,6 +10,6 @@ public class ModelMapper {
 		model.setName(modelDTO.getName());
 		model.setBrand(modelDTO.getBrand());
 		return model;
-		
+
 	}
 }
