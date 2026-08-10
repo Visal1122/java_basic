@@ -1,7 +1,12 @@
 package com.visal.learning.PhoneShop.controller;
 
+import com.visal.learning.PhoneShop.dto.ModelDTO;
 import com.visal.learning.PhoneShop.dto.PageDTO;
+import com.visal.learning.PhoneShop.entity.Model;
 import com.visal.learning.PhoneShop.mapper.BrandsMapper;
+import com.visal.learning.PhoneShop.mapper.ModelMapper;
+import com.visal.learning.PhoneShop.service.ModelService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -14,11 +19,14 @@ import com.visal.learning.PhoneShop.service.BrandService;
 import java.util.List;
 import java.util.Map;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/brands")
 public class BrandController {
-    @Autowired
-    private BrandService brandService;
+
+    private final BrandService brandService;
+    private final ModelService modelService;
+    private final ModelMapper modelMapper;
 
     @PostMapping
     public ResponseEntity<?> create(@RequestBody BrandDTO brandDTO) {
@@ -73,4 +81,13 @@ public class BrandController {
         return ResponseEntity.ok(BrandsMapper.INSTANCE.toBrandDTO(update));
     }
 
+    @GetMapping("{id}/models")
+    public ResponseEntity<?> getModelsByBrand(@PathVariable("id") Integer brandId) {
+        List<Model> models = modelService.getByBrand(brandId);
+        List<ModelDTO> list = models.stream()
+                .map(model -> modelMapper.toModelDTO(model))
+                .toList();
+
+        return ResponseEntity.ok(list);
+    }
 }

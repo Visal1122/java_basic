@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: BookStore
+  datasource:
+    url: jdbc:postgresql://localhost:5433/BookStore
+    username: bookStore
+    password: 123
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+    hibernate:
+      ddl-auto: update
+  spring:
+    liquibase:
+      enabled: true
+      change-log: classpath:changelog.yaml

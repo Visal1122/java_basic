@@ -13,6 +13,10 @@ spring:
         
   application:
     name: PhoneShop
+  spring:
+    liquibase:
+      enabled: true
+      change-log: classpath:changelog.yaml
     
 
         

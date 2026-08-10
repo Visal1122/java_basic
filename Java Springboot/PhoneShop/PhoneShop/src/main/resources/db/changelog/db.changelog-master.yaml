@@ -1,0 +1,6 @@
+databaseChangeLog:
+  - include :
+      - file : db/changelog/init-db.yaml
+
+  - include:
+      - file : db/changelog/002_insert_brand.yaml

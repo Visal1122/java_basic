@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002_load_brands
+      author: visalyang2011@gmail.com
+
+      changes:
+        - loadData:
+            file: db/data/002_brand.csv
+            relativeToChangelogFile: false
+            tableName: brands
+            separator: ","
+            encoding: UTF-8
+
+            columns:
+              - column:
+                  name: brand_id
+                  type: NUMERIC
+
+              - column:
+                  name: brand_name
+                  type: STRING
+
